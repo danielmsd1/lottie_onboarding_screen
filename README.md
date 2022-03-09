@@ -11,29 +11,69 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+* A lottie onboarding screen that you can use for your flutter applications.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+```dart
+LottieOnBoardingScreenData({
+    Key? key,
+    required this.title,
+    required this.lottiePath,
+    required this.description,
+    required this.isItFromNetwork,
+    this.titleSize = 20,
+    this.titleFontFamily = 'roboto',
+    this.descriptionSize = 14,
+    this.descriptionFontFamily = 'roboto',
+  }) : super(key: key);
 
-## Getting started
+```
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+class OnBoardingScreen extends StatelessWidget {
+  final List<LottieOnBoardingScreenData> list = [
+    LottieOnBoardingScreenData(
+      title: 'Hello, page 1',
+      isItFromNetwork: true,
+      titleSize: 14,
+      description: 'This is an awesome description',
+      descriptionSize: 12,
+      lottiePath: 'https://assets5.lottiefiles.com/packages/lf20_h1bogema.json',
+    ),
+    LottieOnBoardingScreenData(
+      title: 'Hello, page 2',
+      isItFromNetwork: true,
+      titleSize: 14,
+      description: 'This is an awesome description',
+      descriptionSize: 12,
+      lottiePath: 'https://assets5.lottiefiles.com/packages/lf20_tulr8tag.json',
+    ),
+    LottieOnBoardingScreenData(
+      title: 'Hello, page 3',
+      isItFromNetwork: true,
+      description: 'This is an awesome description',
+      lottiePath: 'https://assets5.lottiefiles.com/packages/lf20_h1bogema.json',
+    ),
+  ];
+
+  OnBoardingScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LottieOnBoardingScreenView(
+      boardingScreens: list,
+      pageRoute: MaterialPageRoute(
+        builder: (context) => const AuthenticationScreen(),
+      ),
+    );
+  }
+}
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+This package depends on the (lottie package)[https://pub.dev/packages/lottie]
