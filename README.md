@@ -76,4 +76,4 @@ class OnBoardingScreen extends StatelessWidget {
 
 ## Additional information
 
-This package depends on the (lottie package)[https://pub.dev/packages/lottie]
+This package depends on the [lottie package](https://pub.dev/packages/lottie)
